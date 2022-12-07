@@ -61,16 +61,16 @@ Client UI: https://10.129.0.10:943/
 To login please use the "openvpn" account with "73uL7ZohCum4" password.
 ```
 5. Подключаемся к админка через браузер, заходим с логином и паролем, которые были созданы автоматически при запуске OVPN
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_1.png)
 7. В насторйках Переходим в Configuration/Advanced VPN и устанавливаем TLS Control Channel Security в позицию none, чтобы отключить проверку tls-сертификата.
 8. Дальше В Configuration/Network Settings убираем протокол UDP, так как наш клиент в лице Микротика udp не поддерживает.
 
 ### Регистрация клиента
 
 1. В User Managment/User Permissions добавляем нового пользователя.
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_2.png)
 3. В User Managment/User Profiles на панели только что созданного юзера нажимаем New Profile/Create Profile. Получаем в подарок файл с расширением .ovpn, необходимый для настройки клиента.
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_3.png)
 
 ## Настройка CHR, подключение клиента
 
@@ -78,14 +78,16 @@ To login please use the "openvpn" account with "73uL7ZohCum4" password.
 2. Устанавливаем его на виртуальную машину VirtualBox.
 3. При настройке CHR ставим сетевой адаптер типа Сетевой мост для подключения в WebUI микротика
 4. Подключаемся к WebFig, для этого при помощи команды ```ip address print``` узнаем ip адрес CHR, дальше подключаемся с логином admin и паролем, заданным при подключении к консоли нашего микротика
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_4.png)
 6. В раздел files добавляем наш .ovpn файл
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_5.png)
 7. Импортируем его в сертификаты
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_6.png)
 8. Создаем интерфейс, необходимо заполнить данные, такие как ip адрес сервера, логин и пароль пользователя, которого мы создали в Openvpn WebUI, и типы шифрования. 
-![OpenVPN UI]()
+![OpenVPN UI](/lab1/lab_1_7.png)
 9. Дальше необходимо изменить на CHR адаптер на NAT, перезапустить виртуальный роутер. После того, как роутер будет перезагружен, при вводе команды ip address print мы увидим наш новый интерфейс. После этого можем проверить соединение при помощи команды Ping. 
+![OpenVPN UI](/lab1/lab_1_8.png)
+![OpenVPN UI](/lab1/lab_1_9.png)
 
 ## Вывод
 
