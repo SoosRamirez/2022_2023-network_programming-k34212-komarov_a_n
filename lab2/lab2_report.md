@@ -19,7 +19,7 @@ Date of finished:
 ## Создание второй CHR
 
 Аналогично первой работе была создана еще одно машина на RouterOS
-![OpenVPN UI](/lab1/lab_2_1.png)
+![OpenVPN UI](/lab2/lab_2_1.png)
 
 ## Использование ansible для настройки CHR и получение конфигурации машин
 
@@ -72,10 +72,10 @@ ansible_network_os=community.routeros.routeros
         - /routing ospf neighbor print
     register: system_resource_print
 ```
-![OpenVPN UI](/lab1/lab_2_2.png)
-![OpenVPN UI](/lab1/lab_2_3.png)
-![OpenVPN UI](/lab1/lab_3_4.png)
-![OpenVPN UI](/lab1/lab_2_5.png)
+![OpenVPN UI](/lab2/lab_2_2.png)
+![OpenVPN UI](/lab2/lab_2_3.png)
+![OpenVPN UI](/lab2/lab_2_4.png)
+![OpenVPN UI](/lab2/lab_2_5.png)
 5. Для сбора данных создан еще один плейбук data_get.yml:
 ```
 - name: Getting routers data
@@ -103,12 +103,12 @@ ansible_network_os=community.routeros.routeros
 
 ```
 В данном плэйбуке в разные файлы собирается информация о настройке ospf на роутерах и полная конфигурация роутеров. Потом она записывается в файлы. 
-![OpenVPN UI](/lab1/lab_2_6.png)
-![OpenVPN UI](/lab1/lab_2_7.png)
-![OpenVPN UI](/lab1/lab_2_8.png)
-![OpenVPN UI](/lab1/lab_2_9.png)
+![OpenVPN UI](/lab2/lab_2_6.png)
+![OpenVPN UI](/lab2/lab_2_7.png)
+![OpenVPN UI](/lab2/lab_2_8.png)
+![OpenVPN UI](/lab2/lab_2_9.png)
 
 ## Вывод
 
 В ходе работы было выполнено знакомство с ansible. При помощи данного инструмента на обеих машинах была проведена настройка ospf, а так же настроен ntp клиент. Была создана 
-![OpenVPN UI](/lab1/lab_2_10.png)
+![OpenVPN UI](/lab2/lab_2_10.png)
