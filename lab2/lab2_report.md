@@ -44,6 +44,7 @@ ansible_connection=ansible.netcommon.network_cli
 ansible_network_os=community.routeros.routeros
 ```
 В квадратных скобках указывается имя группы устройств, через <имя группы>:vars можно указать повторяющееся параметры для группы устройств. В параметр ansible_host указывается адрес устройства, в ansible_ssh_user указываются логин и в ansible_ssh_pass пароль для ssh подключения. Параметр ansible.netcommon.network_cli используется для ssh соединения к сетевым устройсвам, а параметр community.routeros.routeros указывает операционную систему RouterOS, на которой работают CHR.
+
 4. Команды для выполнения пишутся в таске, таск в плее, плей в плейбуке - файле с разрешением yml. Нужно создать файл и указать команды для выполения:
 ```
 - name: set routers config
