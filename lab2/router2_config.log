@@ -1,0 +1,31 @@
+# dec/14/2022 14:35:57 by RouterOS 7.6
+# software id = 
+#
+/interface bridge
+add name=loopback
+/interface ovpn-client
+add certificate=profile-5.ovpn_1 cipher=aes256 connect-to=51.250.102.44 \
+    mac-address=02:48:6A:D6:45:E6 name=ovpn-out1 port=443 user=soos
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/routing id
+add disabled=no id=4.4.4.4 name=OSPF_ID select-dynamic-id=""
+add disabled=no id=4.4.4.4 name=OSPF_ID select-dynamic-id=""
+add disabled=no id=4.4.4.4 name=OSPF_ID select-dynamic-id=""
+/routing ospf instance
+add disabled=no name=ospf-instance-1 originate-default=always router-id=\
+    OSPF_ID
+/routing ospf area
+add disabled=no instance=ospf-instance-1 name=backbone
+/ip address
+add address=4.4.4.4 interface=loopback network=4.4.4.4
+/ip dhcp-client
+add interface=ether1
+/routing ospf interface-template
+add area=backbone auth=md5 auth-key=10072001 disabled=no interfaces=ether1
+/system clock
+set time-zone-name=Europe/Moscow
+/system ntp client
+set enabled=yes
+/system ntp client servers
+add address=0.ru.pool.ntp.org
