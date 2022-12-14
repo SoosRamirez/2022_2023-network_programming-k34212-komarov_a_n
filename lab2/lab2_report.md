@@ -112,4 +112,4 @@ ansible_network_os=community.routeros.routeros
 ## Вывод
 
 В ходе работы было выполнено знакомство с ansible. При помощи данного инструмента на обеих машинах была проведена настройка ospf, а так же настроен ntp клиент. Была создана 
-![OpenVPN UI](/lab2/lab_2_10.png)
+![OpenVPN UI](/lab2/lab_2_10_1.png)
