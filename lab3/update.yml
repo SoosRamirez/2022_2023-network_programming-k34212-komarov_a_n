@@ -1,0 +1,34 @@
+- name: take serial number of CHR
+  hosts: routers
+  gather_facts: false
+  tasks:
+    - name: taking serial number
+      community.routeros.command:
+        commands:
+          - /system license print
+      register: system_resource_print
+
+    - name: to yaml
+      ansible.builtin.shell: |
+        echo {{ inventory_hostname }}: | tr -d '\n' >> mikrotik_data.yaml
+        echo ' ' | tr -d '\n' >> mikrotik_data.yaml
+        echo -n '{{ system_resource_print }}'| cut -c 39-48 >> mikrotik_data.yaml
+
+- name: put information to netbox
+  hosts: servers
+  connection: local
+  vars_files:
+    mikrotik_data.yaml
+  tasks:
+    - name: put data to NetBox
+      netbox.netbox.netbox_device:
+        netbox_url: http://158.160.6.115:8000/
+        netbox_token: '4b29ff8d81b9c240f95b029a4f080916f295123d'
+        validate_certs: False
+        data:
+          name: "{{ inventory_hostname }}"
+          serial: "{{ inventory_hostname }}"
+          device_type: 1
+          device_role: "router"
+          site: 1
+        state: present

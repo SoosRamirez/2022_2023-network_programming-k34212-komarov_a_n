@@ -1,0 +1,3 @@
+Name,Status,Tenant,Site,Location,Rack,Role,Manufacturer,Type,IP Address,ID,Tenant Group,Platform,Serial number,Asset tag,Region,Site Group,Position (U),Rack face,Airflow,IPv4 Address,IPv6 Address,Cluster,Virtual chassis,VC Position,VC Priority,Description,Comments,Contacts,Tags,Created,Last updated
+R1,Active,,localnetwork,,,router,MikroTik,RouterOs 7,,1,,,,,,,,,,,,,,,,,,,,12/20/2022 2:07 p.m.,12/20/2022 2:08 p.m.
+R2,Active,,localnetwork,,,router,MikroTik,RouterOs 7,,2,,,,,,,,,,,,,,,,,,,,12/20/2022 2:08 p.m.,12/20/2022 2:08 p.m.

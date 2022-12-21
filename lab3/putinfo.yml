@@ -1,0 +1,15 @@
+- name: put info to netbox
+  hosts: servers
+  connection: local
+  tasks:
+    - name: put data
+      netbox.netbox.netbox_device:
+        netbox_url: http://158.160.6.115:8000
+        netbox_token: '599035a2c82c6e8ca2d4eadfaee6f999f8837205'
+        validate_certs: false
+        data:
+          name: "test device"
+          device_type: 1
+          device_role: "router"
+          site: 1
+        state: present
