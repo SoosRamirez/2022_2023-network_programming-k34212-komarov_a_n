@@ -7,10 +7,15 @@
         commands:
           - /system license print
       register: system_resource_print
+    - name: Get Name
+      community.routeros.command:
+        commands:
+          - /system identity print
+      register: identity_print
 
     - name: to yaml
       ansible.builtin.shell: |
-        echo {{ inventory_hostname }}: | tr -d '\n' >> mikrotik_data.yaml
+        echo {{ identity_print }}: | tr -d '\n' >> mikrotik_data.yaml
         echo ' ' | tr -d '\n' >> mikrotik_data.yaml
         echo -n '{{ system_resource_print }}'| cut -c 39-48 >> mikrotik_data.yaml
 
@@ -26,8 +31,8 @@
         netbox_token: '4b29ff8d81b9c240f95b029a4f080916f295123d'
         validate_certs: False
         data:
-          name: "{{ inventory_hostname }}"
-          serial: "{{ inventory_hostname }}"
+          name: "{{identity_print.stdout_lines[0][0].split(' ').1}}"
+          serial: "{{system_resource_print.stdout_lines[0][0].split(' ').1}}
           device_type: 1
           device_role: "router"
           site: 1
