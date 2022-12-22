@@ -73,4 +73,4 @@ scp /Users/aleksejkomarov/Downloads/netbox_devices.csv soos@158.160.23.129:~/
 
   Схема связи
   
-![image](/lab3/drawio.png)
+![image](/lab3/drawio-3.png)
